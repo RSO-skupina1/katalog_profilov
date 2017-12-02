@@ -17,7 +17,7 @@ public class Profil {
     private String id;
 
     @Column(name = "ime")
-    private String ime;
+    private String ime;  //ime uporabnika
 
     @Column(name = "priimek")
     private String priimek;
