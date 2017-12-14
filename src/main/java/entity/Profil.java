@@ -3,15 +3,18 @@ package entity;
 import org.eclipse.persistence.annotations.UuidGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity(name = "profil")
+
+@Entity
+@Table(name = "profil")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "Profil.getAll", query = "SELECT p FROM profil p")
+                @NamedQuery(name = "Profil.getAll", query = "SELECT p FROM Profil p")
         })
 
 @UuidGenerator(name = "idGenerator")
-public class Profil {
+public class Profil implements Serializable {
     @Id
     @GeneratedValue(generator = "idGenerator")
     private String id;
@@ -44,5 +47,12 @@ public class Profil {
 
     public void setPriimek(String priimek) {
         this.priimek = priimek;
+    }
+
+    @Override
+    public String toString() {
+        return ("id: " + this.id + ", " +
+                "ime: '" + this.ime +
+                "', priimek: " + this.priimek);
     }
 }

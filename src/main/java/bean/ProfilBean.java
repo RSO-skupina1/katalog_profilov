@@ -11,7 +11,7 @@ import java.util.List;
 
 @RequestScoped
 public class ProfilBean {
-    @PersistenceContext(unitName = "profils-jpa")
+    @PersistenceContext
     private EntityManager em;
 
     public List<Profil> getProfils(){

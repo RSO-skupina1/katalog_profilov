@@ -13,11 +13,17 @@ import java.util.List;
 @RequestScoped
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/katalog_profilov")
+@Path("katalog_profilov")
 public class KatalogProfilovREST {
 
     @Inject
     private ProfilBean profilBean;
+
+    @GET
+    @Path("/test")
+    public Response test() {
+        return Response.ok("OK").build();
+    }
 
     @GET
     public Response getProfils() {

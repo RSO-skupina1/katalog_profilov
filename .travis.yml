@@ -1,0 +1,26 @@
+sudo: required
+
+services:
+  - docker
+
+language: java
+dist: trusty
+
+branches:
+  only:
+  - master
+
+jdk:
+  - openjdk8
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script:
+  - mvn clean package -U
+  - docker build -t db8913/katalog_profilov .
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push db8913/katalog_profilov
