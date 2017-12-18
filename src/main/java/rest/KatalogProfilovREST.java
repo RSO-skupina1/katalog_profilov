@@ -64,7 +64,7 @@ public class KatalogProfilovREST {
     }
 
     @PUT
-    @Path("{customerId}")
+    @Path("{profilId}")
     public Response updateProfil(@PathParam("profilId") String profilId, Profil profil) {
 
         profil = profilBean.updateProfil(profilId, profil);
