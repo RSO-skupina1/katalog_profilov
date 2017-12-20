@@ -72,10 +72,6 @@
             <version>42.0.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>si.fri.rso</groupId>
-            <artifactId>sporocilni_sistem</artifactId>
-        </dependency>
     </dependencies>
 
 
