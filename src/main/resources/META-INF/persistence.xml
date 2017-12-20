@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-    <persistence-unit name="kumuluzee-samples-jpa" transaction-type="JTA">
+    <persistence-unit name="profil-jpa" transaction-type="JTA">
 
         <jta-data-source>jdbc/KatalogProfilovDS</jta-data-source>
 
@@ -14,6 +14,9 @@
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
             <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+            <property name="javax.persistence.sql-load-script-source"
+                      value="sql-scripts/init-profil.sql" />
         </properties>
     </persistence-unit>
 </persistence>
+

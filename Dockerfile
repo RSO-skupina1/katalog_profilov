@@ -1,7 +1,10 @@
-FROM openjdk:8
+FROM openjdk:8-jre-alpine
+
+RUN mkdir /app
+
+WORKDIR /app
 
 COPY ./target target
-WORKDIR /
 
 EXPOSE 8080
-CMD PORT=8080 java -cp target/classes:target/dependency/* com.kumuluz.ee.EeApplication
+CMD ["java", "-cp", "target/classes:target/dependency/*", "com.kumuluz.ee.EeApplication"]

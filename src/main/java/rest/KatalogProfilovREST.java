@@ -6,8 +6,10 @@ import entity.Profil;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @RequestScoped
@@ -18,6 +20,9 @@ public class KatalogProfilovREST {
 
     @Inject
     private ProfilBean profilBean;
+
+    @Context
+    protected UriInfo uriInfo;
 
     @GET
     @Path("/test")
@@ -44,6 +49,17 @@ public class KatalogProfilovREST {
         }
 
         return Response.status(Response.Status.OK).entity(profil).build();
+    }
+
+    @GET
+    @Path("/filtered")
+    public Response getCustomersFiltered() {
+
+        List<Profil> profils;
+
+        profils = profilBean.getCustomersFilter(uriInfo);
+
+        return Response.status(Response.Status.OK).entity(profils).build();
     }
 
     @POST

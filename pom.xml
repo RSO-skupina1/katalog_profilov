@@ -9,6 +9,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kumuluzee.version>2.4.1</kumuluzee.version>
         <kumuluzee-config.version>1.0.0</kumuluzee-config.version>
         <kumuluzee-discovery.version>1.0.0</kumuluzee-discovery.version>
@@ -58,11 +61,20 @@
             <version>${kumuluzee-discovery.version}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>com.kumuluz.ee.rest</groupId>
+            <artifactId>kumuluzee-rest-core</artifactId>
+            <version>1.1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>si.fri.rso</groupId>
+            <artifactId>sporocilni_sistem</artifactId>
         </dependency>
     </dependencies>
 

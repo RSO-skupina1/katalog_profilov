@@ -2,16 +2,20 @@ package bean;
 
 import entity.Profil;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
+
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @RequestScoped
 public class ProfilBean {
-    @PersistenceContext
+    @PersistenceContext(unitName = "profil-jpa")
     private EntityManager em;
 
     public List<Profil> getProfils(){
@@ -79,5 +83,15 @@ public class ProfilBean {
             return false;
 
         return true;
+    }
+
+    public List<Profil> getCustomersFilter(UriInfo uriInfo) {
+
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
+                .build();
+
+        List<Profil> customers = JPAUtils.queryEntities(em, Profil.class, queryParameters);
+
+        return customers;
     }
 }
