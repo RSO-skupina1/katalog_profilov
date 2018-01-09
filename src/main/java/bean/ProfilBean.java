@@ -1,11 +1,14 @@
 package bean;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import entity.Profil;
 
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
+import jersey.repackaged.com.google.common.base.Optional;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +18,10 @@ import java.util.List;
 
 @RequestScoped
 public class ProfilBean {
+    @Inject
+    @DiscoverService(value = "sporocilni-sistem", environment = "dev", version = "*")
+    private Optional<String> basePath;
+
     @PersistenceContext(unitName = "profil-jpa")
     private EntityManager em;
 
