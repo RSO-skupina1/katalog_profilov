@@ -22,5 +22,5 @@ script:
   - docker build -t db8913/katalog_profilov .
 
 after_success:
-  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker login -u="jkatanec" -p="geslo123"
   - docker push db8913/katalog_profilov
