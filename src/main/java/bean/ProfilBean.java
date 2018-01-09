@@ -19,7 +19,7 @@ import java.util.List;
 @RequestScoped
 public class ProfilBean {
     @Inject
-    @DiscoverService(value = "sporocilni-sistem", environment = "dev", version = "*")
+    @DiscoverService(value = "sporocilni_sistem-service", environment = "dev", version = "*")
     private Optional<String> basePath;
 
     @PersistenceContext(unitName = "profil-jpa")

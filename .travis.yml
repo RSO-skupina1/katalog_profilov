@@ -19,8 +19,8 @@ cache:
 
 script:
   - mvn clean package -U
-  - docker build -t db8913/katalog_profilov .
+  - docker build -t jkatanec/katalog_profilov .
 
 after_success:
   - docker login -u="jkatanec" -p="geslo123"
-  - docker push db8913/katalog_profilov
+  - docker push jkatanec/katalog_profilov
